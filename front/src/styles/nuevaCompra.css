@@ -1,0 +1,27 @@
+.form-compra {
+  background: var(--color-card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+}
+
+.form-compra label {
+  color: var(--color-text);
+}
+
+.form-compra input,
+.form-compra select {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: .6rem;
+  border-radius: 6px;
+}
+
+.form-compra button {
+  background: var(--color-btn);
+}
+
+.form-compra button:hover {
+  background: var(--color-btn-hover);
+}

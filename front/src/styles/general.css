@@ -1,0 +1,135 @@
+/* --------------------------
+   ESTRUCTURA GENERAL
+---------------------------*/
+.page {
+  padding-top: 2rem;
+}
+
+.container {
+  padding: 1rem;
+}
+
+.card {
+  background: var(--color-card);
+  padding: 1.5rem;
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+/* --------------------------
+   GRUPOS DE FORMULARIO
+---------------------------*/
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--color-text);
+}
+
+
+
+.form-group input,
+.form-group select {
+  padding: 0.7rem;
+  border-radius: 8px;
+  background: var(--color-card);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--color-btn);
+  outline: none;
+  box-shadow: 0 0 4px var(--color-btn);
+}
+
+
+form button {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-btn);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+
+.form-container button,
+.form-group button {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 10px;
+  background: var(--color-btn);
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+
+button:hover,
+form button:hover,
+.form-container button:hover {
+  background: var(--color-btn-hover);
+}
+
+
+.form-container {
+  max-width: 550px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(70, 0, 50, 0.25);
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--color-text);
+}
+
+.error-text {
+  color: #bc0d36;
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+}
+
+.success-text {
+  color: #8adfb3;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+.nav-wrap {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin: 0;
+  padding: 15px 40px;
+  box-sizing: border-box;
+
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}

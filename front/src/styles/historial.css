@@ -1,0 +1,38 @@
+.transacciones-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-card);
+  color: var(--color-text);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.transacciones-table th {
+  background: var(--color-btn);
+  color: white;
+  padding: 10px;
+}
+
+.transacciones-table td {
+  padding: 10px;
+  border-top: 1px solid var(--color-border);
+}
+
+.transacciones-table tr:hover {
+  background: var(--color-btn-hover);
+  color: white;
+}
+
+/* Botones de acciones */
+.historial-actions button {
+  background: var(--color-btn);
+  color: white;
+  padding: .5rem 1rem;
+  border-radius: 6px;
+  border: none;
+}
+
+.historial-actions button:hover {
+  background: var(--color-btn-hover);
+}

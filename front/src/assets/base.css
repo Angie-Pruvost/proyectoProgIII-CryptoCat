@@ -1,0 +1,192 @@
+/* ============================
+   ⚡ LIGHT THEME (por defecto)
+   ============================ */
+:root {
+  --color-bg: #f5f7fa;               /* Gris claro suave */
+  --color-card: #ffffff;             /* Fondo tarjetas */
+  --color-text: #1e1e1e;             /* Texto bien oscuro */
+  --color-text-soft: #4a4a4a;        /* Texto secundario */
+  --color-border: #d0d0d0;           /* Bordes suaves */
+  --color-primary: #0d6efd;          /* Azul vibrante accesible */
+  --color-primary-hover: #0a58ca;
+
+  --color-btn: #0d6efd;
+  --color-btn-hover: #0a58ca;
+
+  --color-border: #d0d5dd;           /* Bordes suaves */
+
+  --radius: 8px;
+  --transition: 0.25s ease;
+}
+
+/* ============================
+   🌙 DARK THEME
+   ============================ */
+.dark {
+  --color-bg: #0d1117;               /* Fondo general */
+  --color-card: #161b22;             /* Tarjetas */
+  --color-text: #eaeaea;             /* Texto blanco-gris */
+  --color-text-soft: #c0c0c0;
+
+  --color-btn: #064199;
+  --color-btn-hover: #022d6e;
+
+  --color-primary: #4493f8;
+  --color-primary-hover: #2c70c9;
+
+  --color-border: #30363d;
+}
+
+/* ============================
+   ESTILOS GENERALES
+   ============================ */
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: system-ui, sans-serif;
+  transition: var(--transition);
+}
+
+/* Layout general de las páginas */
+.page {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* ============================
+   FORMULARIOS
+   ============================ */
+.form-container {
+  background: var(--color-card);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  border: 1px solid var(--color-border);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+  color: var(--color-text);
+}
+
+input,
+select {
+  width: 100%;
+  background: var(--color-card);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  padding: .55rem .75rem;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(13,110,253,0.25);
+}
+
+/* ============================
+   BOTONES
+   ============================ */
+button {
+  background: var(--color-primary);
+  color: rgb(31, 20, 20);
+  border: none;
+  padding: 10px 16px;
+  font-weight: 600;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+button:hover {
+  background: var(--color-primary-hover);
+}
+
+
+/* BOTONES BASE */
+.btn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.btn-primary {
+  background: var(--color-btn);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--color-btn-hover);
+}
+
+.card {
+  background: var(--color-card);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+}
+
+/* ============================
+   ESTADOS (errores, éxito)
+   ============================ */
+.error-text {
+  color: #d93025;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.success-text {
+  color: #2e8b57;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+input, button {
+  font-family: inherit;
+}
+/* ============================
+   MODALES (opcional)
+   ============================ */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  background: var(--color-card);
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 420px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+  animation: fadeIn .25s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
