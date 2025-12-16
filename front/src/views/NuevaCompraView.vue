@@ -4,7 +4,7 @@
     <h2>Nueva Compra de Criptomoneda</h2>
 <div class="page">
   <form @submit.prevent="handleSubmit">
-      <!-- Selección de Criptomoneda -->
+
       <div class="form-group">
         <label for="crypto">Criptomoneda</label>
         <select id="crypto" v-model="cryptoCode">
@@ -16,7 +16,7 @@
         <span v-if="errors.cryptoCode" class="error-text">{{ errors.cryptoCode }}</span>
       </div>
 
-      <!-- Cantidad -->
+
       <div class="form-group">
         <label for="amount">Cantidad</label>
         <input
@@ -32,7 +32,7 @@
         <p>Total en ARS: {{ money.toFixed(2) }}</p>
       </div>
 
-      <!-- Selección de Cliente -->
+
       <div class="form-group">
         <label for="client">Cliente</label>
         <select id="client" v-model="clientId">
@@ -44,14 +44,14 @@
         <span v-if="errors.clientId" class="error-text">{{ errors.clientId }}</span>
       </div>
 
-      <!-- Fecha y Hora -->
+
       <div class="form-group">
         <label for="date">Fecha y Hora</label>
         <input type="datetime-local" id="date" v-model="date" />
         <span v-if="errors.date" class="error-text">{{ errors.date }}</span>
       </div>
 
-  <!-- Estimación -->
+
       <div v-if="estimatedPrice">
         <p v-if="precio">Precio actual (ARS): ${{ money.toFixed(2) }}</p>
 
@@ -83,7 +83,7 @@ const estimatedPrice = ref('')
 
 const cryptos =ref (["BTC", "ETH", "USDT", "BNB"])
 
-// Cargar clientes al montar
+
 onMounted(async () => {
   try {
     const res = await fetch('https://localhost:7006/api/Clientes')
@@ -176,14 +176,14 @@ console.log("PAYLOAD ENVIADO AL BACKEND:", JSON.stringify(payload, null, 2))
 
 
 <style scoped>
-/* --- ENVOLTORIO EXCLUSIVO DEL FORMULARIO --- */
+
 .compra-wrapper {
   width: 100%;
   max-width: 550px;
   margin: 2rem auto;
 }
 
-/* --- FORMULARIO --- */
+
 .form-compra {
   background: var(--color-card) !important;
   border-radius: 12px;
@@ -191,14 +191,14 @@ console.log("PAYLOAD ENVIADO AL BACKEND:", JSON.stringify(payload, null, 2))
   border: 1px solid var(--color-border);
 }
 
-/* Etiquetas */
+
 .form-compra label {
   color: var(--color-text);
   font-weight: 600;
   margin-bottom: .3rem;
 }
 
-/* Inputs */
+
 .form-compra input,
 .form-compra select {
   background: var(--color-bg);
@@ -216,7 +216,7 @@ console.log("PAYLOAD ENVIADO AL BACKEND:", JSON.stringify(payload, null, 2))
   box-shadow: 0 0 4px var(--color-btn);
 }
 
-/* Botón */
+
 .form-compra button {
   margin-top: 1rem;
   width: 100%;

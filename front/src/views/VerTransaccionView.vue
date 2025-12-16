@@ -50,7 +50,7 @@ const id = route.params.id;
 const tx = ref(null);
 const cliente = ref({});
 
-// ========================= CARGAR TRANSACCIÓN =========================
+
 onMounted(async () => {
   await cargarTransaccion();
 });
@@ -59,17 +59,17 @@ async function cargarTransaccion() {
   const res = await fetch(`https://localhost:7006/api/Transacciones/${id}`);
   tx.value = await res.json();
 
-  // cargar cliente correspondiente
+
   const cli = await fetch(`https://localhost:7006/api/Clientes/${tx.value.ClienteId}`);
   cliente.value = await cli.json();
 }
 
-// ========================= NAVEGAR A EDITAR =========================
+
 function irAEditar() {
   router.push(`/transaccion-editar/${id}`);
 }
 
-// ========================= ELIMINAR =========================
+
 async function eliminar() {
   if (!confirm("¿Seguro que deseas borrar esta transacción?")) return;
 
@@ -81,7 +81,7 @@ async function eliminar() {
   router.push("/historial");
 }
 
-// ========================= FORMATOS =========================
+
 const formatFecha = (f) => new Date(f).toLocaleString("es-AR");
 const formatCantidad = (v) => parseFloat(v).toFixed(6);
 const formatMoney = (v) => "$" + parseFloat(v).toFixed(2);

@@ -5,13 +5,13 @@
 
     <h1>Vender {{ crypto.toUpperCase() }}</h1>
 
-    <!-- INFO DE LA CRYPTO -->
+
     <div class="card">
       <p><strong>Cantidad disponible:</strong> {{ cantidadDisponible.toFixed(6) }}</p>
       <p><strong>Precio actual:</strong> ${{ precioActual.toFixed(2) }}</p>
     </div>
 
-    <!-- FORMULARIO -->
+
     <form class="form-card" @submit.prevent="confirmarVenta">
 
       <label>Cantidad a vender</label>
@@ -36,22 +36,19 @@ import { useRoute, useRouter } from "vue-router";
 const route = useRoute()
 const router = useRouter()
 
-// Recibe parámetros desde el dashboard
 const clienteId = route.params.id
 const crypto = route.params.crypto
 
-// Estado
+
 const cantidadDisponible = ref(0)
 const precioActual = ref(0)
 const cantidadVenta = ref(0)
 const mensaje = ref("")
 
-// Total calculado
+
 const total = ref(0)
 
-// ------------------------------
-// Cargar portfolio del cliente
-// ------------------------------
+
 async function cargarCantidadDisponible() {
   const res = await fetch(`https://localhost:7006/api/Transacciones/cliente/${clienteId}`)
   const datos = await res.json()
@@ -67,18 +64,14 @@ async function cargarCantidadDisponible() {
   cantidadDisponible.value = suma
 }
 
-// ------------------------------
-// Obtener precio actual
-// ------------------------------
+
 async function cargarPrecio() {
   const res = await fetch(`https://criptoya.com/api/bybit/${crypto}/ARS/0.1`)
   const data = await res.json()
   precioActual.value = data.totalAsk
 }
 
-// ------------------------------
-// Confirmar venta
-// ------------------------------
+
 async function confirmarVenta() {
   mensaje.value = ""
 
@@ -119,9 +112,7 @@ async function confirmarVenta() {
   router.push(`/cliente-dashboard/${clienteId}`)
 }
 
-// ------------------------------
-// Inicialización
-// ------------------------------
+
 onMounted(async () => {
   await cargarCantidadDisponible()
   await cargarPrecio()

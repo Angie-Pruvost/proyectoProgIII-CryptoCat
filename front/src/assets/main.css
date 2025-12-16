@@ -6,7 +6,6 @@
   padding: 1.5rem;
 }
 
-/* Links usando las variables */
 a {
   text-decoration: none;
   color: var(--color-btn);
@@ -21,7 +20,7 @@ a:hover {
   border-radius: 6px;
 }
 
-/* responsive */
+
 @media (min-width: 1024px) {
   body {
     display: flex;

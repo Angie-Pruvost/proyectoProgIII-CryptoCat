@@ -1,11 +1,9 @@
 <template>
   <div>
 
-    <!-- OVERLAY -->
     <div class="overlay" v-if="props.abierto" @click="emit('toggle-menu')"></div>
 
 
-    <!-- MENÚ LATERAL -->
     <nav v-if="props.abierto" class="menu abierto">
 
       <h2>CryptoCat</h2>
@@ -37,9 +35,6 @@ const emit = defineEmits(["toggle-menu"]);
 <style scoped>
 
 
-/* ============================
-   OVERLAY
-   ============================ */
 .overlay {
   position: fixed;
   top: 0;
@@ -51,9 +46,6 @@ const emit = defineEmits(["toggle-menu"]);
   z-index: 1050;
 }
 
-/* ============================
-   MENÚ LATERAL
-   ============================ */
 .menu {
   position: fixed;
   top: 0;
@@ -77,7 +69,7 @@ const emit = defineEmits(["toggle-menu"]);
   left: 0;
 }
 
-/* TITULO */
+
 .menu h2 {
   margin: 0 0 25px 0;
   font-size: 1.4rem;
@@ -85,7 +77,7 @@ const emit = defineEmits(["toggle-menu"]);
   color: var(--color-text);
 }
 
-/* LISTA */
+
 .menu ul {
   list-style: none;
   padding: 0;
@@ -96,7 +88,7 @@ const emit = defineEmits(["toggle-menu"]);
   margin: 18px 0;
 }
 
-/* LINKS */
+
 .menu a {
   text-decoration: none;
   font-size: 17px;
@@ -109,19 +101,19 @@ const emit = defineEmits(["toggle-menu"]);
   transition: var(--transition);
 }
 
-/* HOVER */
+
 .menu a:hover {
   background: var(--color-primary);
   color: white;
 }
 
-/* ACTIVO (router-link-exact-active) */
+
 .menu a.router-link-exact-active {
   background: var(--color-primary);
   color: white;
 }
 
-/* BOTÓN CERRAR */
+
 .cerrar {
   margin-top: 35px;
   width: 100%;

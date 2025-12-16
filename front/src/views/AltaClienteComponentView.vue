@@ -81,23 +81,22 @@ const handleSubmit = async () => {
 </script>
 
 <style scoped>
-/* ======== CONTENEDOR PRINCIPAL ======== */
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1.5rem;
-  min-height: calc(100vh - 80px); /* evita que quede abajo */
+  min-height: calc(100vh - 80px);
 }
 
-/* ======== TARJETA ======== */
+
 .card {
   width: 100%;
   max-width: 420px;
   padding: 1.5rem;
 }
 
-/* ======== TÍTULO ======== */
 .card h2 {
   margin-bottom: 20px;
   font-size: 1.4rem;
@@ -106,7 +105,7 @@ const handleSubmit = async () => {
   font-weight: 700;
 }
 
-/* ======== FORM GROUP ======== */
+
 .form-group {
   margin-bottom: 18px;
 }
@@ -132,7 +131,7 @@ input:focus {
   box-shadow: 0 0 4px rgba(13, 110, 253, 0.3);
 }
 
-/* ======== BOTÓN ======== */
+
 .btn-submit {
   width: 100%;
   background: var(--color-btn);
@@ -149,7 +148,7 @@ input:focus {
   background: var(--color-btn-hover);
 }
 
-/* ======== MENSAJES ======== */
+
 .error-text {
   margin-top: 12px;
   color: var(--color-danger);
@@ -164,7 +163,7 @@ input:focus {
   font-weight: 500;
 }
 
-/* ======== DESKTOP ======== */
+
 @media (min-width: 900px) {
   .card {
     max-width: 480px;

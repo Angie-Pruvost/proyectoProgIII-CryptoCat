@@ -1,6 +1,4 @@
-/* --------------------------
-   ESTRUCTURA GENERAL
----------------------------*/
+
 .page {
   padding-top: 2rem;
 }
@@ -17,9 +15,6 @@
   color: var(--color-text);
 }
 
-/* --------------------------
-   GRUPOS DE FORMULARIO
----------------------------*/
 .form-group {
   display: flex;
   flex-direction: column;

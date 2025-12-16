@@ -3,7 +3,7 @@
 
     <h1>Dónde conviene comprar / vender</h1>
 
-    <!-- SELECTOR DE CRYPTO -->
+
     <div class="selector">
       <label>Cripto:</label>
       <select v-model="crypto" @change="cargarPrecios">
@@ -17,7 +17,7 @@
       <button class="btn" @click="cargarPrecios">Refrescar</button>
     </div>
 
-    <!-- TABLA -->
+
     <table v-if="exchanges.length" class="tabla">
       <thead>
         <tr>
@@ -94,7 +94,7 @@ async function cargarPrecios() {
   mejorVenta.value = Math.max(...exchanges.value.map(e => e.bid).filter(n => n > 0))
 }
 
-// Cargar al iniciar
+
 cargarPrecios()
 </script>
 

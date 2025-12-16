@@ -2,7 +2,6 @@
   <header class="nav-wrap">
     <div class="nav-inner">
 
-      <!-- BOTÓN HAMBURGUESA -->
       <button class="hamburger" @click="$emit('toggle-menu')">
         ☰
       </button>
@@ -47,9 +46,7 @@ const aplicarTema = () => {
 </script>
 
 <style>
-/* ============================
-   NAVBAR GENERAL
-   ============================ */
+
 .nav-wrap {
   width: 100%;
   background: var(--color-card);
@@ -67,9 +64,6 @@ const aplicarTema = () => {
   align-items: center;
 }
 
-/* ============================
-   LOGO / BRAND
-   ============================ */
 .brand .logo {
   margin: 0;
   font-size: 1.3rem;
@@ -77,9 +71,6 @@ const aplicarTema = () => {
   color: var(--color-text);
 }
 
-/* ============================
-   HAMBURGER BUTTON
-   ============================ */
 .hamburger {
   background: transparent;
   color: var(--color-text);
@@ -97,9 +88,6 @@ const aplicarTema = () => {
   border-color: var(--color-primary);
 }
 
-/* ============================
-   LINKS (si agregás en el futuro)
-   ============================ */
 .nav-link {
   padding: 0.45rem 0.75rem;
   border-radius: var(--radius);
@@ -118,9 +106,6 @@ const aplicarTema = () => {
   color: white;
 }
 
-/* ============================
-   BOTÓN CAMBIO DE TEMA
-   ============================ */
 .theme-toggle {
   background: var(--color-primary);
   color: white;
@@ -136,9 +121,6 @@ const aplicarTema = () => {
   background: var(--color-primary-hover);
 }
 
-/* ============================
-   RESPONSIVE
-   ============================ */
 @media (max-width: 640px) {
   .nav-inner {
     flex-direction: row;

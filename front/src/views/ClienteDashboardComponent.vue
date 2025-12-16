@@ -2,7 +2,6 @@
   <div class="dashboard-container">
     <button class="back-btn" @click="$router.back()">⬅ Volver</button>
 
-    <!-- ==================== DATOS DEL CLIENTE ==================== -->
     <section class="card">
       <h2>Cliente</h2>
       <p><strong>Nombre:</strong> {{ cliente.Name }}</p>
@@ -13,7 +12,6 @@
       <button class="btn delete" @click="eliminarCliente">Eliminar cliente</button>
     </section>
 
-    <!-- ==================== TOTALES ==================== -->
     <section class="card totals">
       <h2>Resumen</h2>
 
@@ -27,7 +25,6 @@
       <p><strong>Valor actual de la cartera:</strong> {{ formatMoney(valorActualCartera) }}</p>
     </section>
 
-    <!-- ==================== CARTERA ACTUAL ==================== -->
     <section class="card">
       <h2>Cartera Actual</h2>
 
@@ -59,14 +56,14 @@
       <p v-else>El cliente no posee criptomonedas actualmente.</p>
     </section>
 
-    <!-- ==================== GRÁFICO DE TORTA ==================== -->
+
     <section class="card">
       <h2>Distribución de cartera</h2>
       <canvas ref="chartRef"></canvas>
     </section>
 
 
-    <!-- ==================== MODAL VENTA ==================== -->
+
     <div v-if="modalVenta" class="modal-overlay">
       <div class="modal-content">
         <h3>Vender {{ ventaCrypto.toUpperCase() }}</h3>
@@ -95,7 +92,7 @@ const router = useRouter();
 
 const id = route.params.id;
 
-// ==================== STATE ====================
+
 const cliente = ref({});
 const transacciones = ref([]);
 
@@ -109,7 +106,7 @@ const cartera = ref({});
 const chartRef = ref(null);
 let chart = null;
 
-// ==================== MODALES ====================
+
 const modalEditarCliente = ref(false);
 const formCliente = ref({ Name: "", Email: "" });
 
@@ -119,7 +116,7 @@ const ventaCantidad = ref(0);
 const ventaCantidadMax = ref(0);
 const mensajeVenta = ref("");
 
-// ==================== INICIAL ====================
+
 onMounted(async () => {
   await cargarCliente();
   await cargarTransacciones();
@@ -127,7 +124,7 @@ onMounted(async () => {
   dibujarGrafico();
 });
 
-// ==================== CARGAR CLIENTE ====================
+
 async function cargarCliente() {
   const res = await fetch(`https://localhost:7006/api/Clientes/${id}`);
   cliente.value = await res.json();
@@ -136,7 +133,7 @@ async function cargarCliente() {
   formCliente.value.Email = cliente.value.Email;
 }
 
-// ==================== CARGAR TRANSACCIONES ====================
+
 async function cargarTransacciones() {
   const res = await fetch(
     `https://localhost:7006/api/Transacciones/cliente/${id}`
@@ -144,7 +141,7 @@ async function cargarTransacciones() {
   transacciones.value = await res.json();
 }
 
-// ==================== CALCULAR CARTERA ====================
+
 async function calcularCartera() {
   const resumen = {};
 
@@ -165,7 +162,7 @@ async function calcularCartera() {
     }
   }
 
-  // obtener precios actuales
+
   for (const crypto of Object.keys(resumen)) {
     const precio = await obtenerPrecio(crypto);
     resumen[crypto].precio = precio;
@@ -180,14 +177,14 @@ async function calcularCartera() {
   gananciaPerdida.value = totalVendido.value + valorActualCartera.value - totalInvertido.value;
 }
 
-// ==================== OBTENER PRECIO ====================
+
 async function obtenerPrecio(crypto) {
   const res = await fetch(`https://criptoya.com/api/bybit/${crypto}/ARS/0.1`);
   const data = await res.json();
   return data.totalAsk;
 }
 
-// ==================== GRÁFICO ====================
+
 function dibujarGrafico() {
   if (!chartRef.value) return;
 
@@ -206,7 +203,7 @@ function dibujarGrafico() {
   });
 }
 
-// ==================== EDITAR CLIENTE ====================
+
 function irAEditarCliente() {
   router.push(`/cliente-editar/${id}`);
 }
@@ -223,7 +220,7 @@ async function guardarCliente() {
   alert("Cliente actualizado");
 }
 
-// ==================== VENDER ====================
+
 function abrirVenta(crypto, maxCant) {
   ventaCrypto.value = crypto;
   ventaCantidadMax.value = maxCant;
@@ -269,7 +266,7 @@ async function confirmarVenta() {
   alert("Venta realizada");
 }
 
-// ==================== ELIMINAR CLIENTE ====================
+
 async function eliminarCliente() {
   if (!confirm("¿Seguro que deseas eliminar este cliente?")) return;
 
@@ -281,7 +278,7 @@ async function eliminarCliente() {
   router.push("/");
 }
 
-// ==================== FORMATOS ====================
+
 const formatFecha = (f) => new Date(f).toLocaleString("es-AR");
 const formatCantidad = (v) => parseFloat(v).toFixed(6);
 const formatMoney = (v) => "$" + parseFloat(v).toFixed(2);
@@ -294,7 +291,7 @@ const formatMoney = (v) => "$" + parseFloat(v).toFixed(2);
   padding: 20px;
 }
 
-/* ======== CARD LOCAL (NO pisa al global) ======== */
+
 .card.dashboard {
   padding: 20px;
   border-radius: 12px;
@@ -304,7 +301,7 @@ const formatMoney = (v) => "$" + parseFloat(v).toFixed(2);
   box-shadow: 0 2px 8px #0002;
 }
 
-/* ======== TABLA ======== */
+
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -318,7 +315,7 @@ const formatMoney = (v) => "$" + parseFloat(v).toFixed(2);
   color: var(--color-text);
 }
 
-/* ======== BOTONES ======== */
+
 .btn {
   padding: 8px 14px;
   border: none;
@@ -341,11 +338,11 @@ const formatMoney = (v) => "$" + parseFloat(v).toFixed(2);
   filter: brightness(1.15);
 }
 
-/* ======== ESTILOS COLORES ======== */
+
 .green { color: green; }
 .red { color: red; }
 
-/* ======== BACK BUTTON ======== */
+
 .back-btn {
   margin-bottom: 12px;
   background: #dedede;
@@ -354,7 +351,7 @@ const formatMoney = (v) => "$" + parseFloat(v).toFixed(2);
   cursor: pointer;
 }
 
-/* ======== MODAL ======== */
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -376,7 +373,7 @@ const formatMoney = (v) => "$" + parseFloat(v).toFixed(2);
   border: 1px solid var(--color-border);
 }
 
-/* ======== TARJETAS MÉTRICAS ======== */
+
 .metrica {
   background: linear-gradient(135deg, var(--color-card), #20222480);
   color: var(--color-text);
@@ -397,7 +394,6 @@ const formatMoney = (v) => "$" + parseFloat(v).toFixed(2);
   font-weight: bold;
 }
 
-/* ======== TABLA PORTFOLIO HOVER ======== */
 .tabla-portfolio tr:hover {
   background: rgba(0, 0, 0, 0.05);
   transition: 0.2s;

@@ -39,14 +39,14 @@ async function cargar() {
   const res = await fetch("https://localhost:7006/api/Clientes")
   const clientes = await res.json()
 
-  // Métricas simples
+
   metricas.value = [
     { titulo: "Total de clientes", valor: clientes.length },
     { titulo: "Promedio de inversión", valor: 0 },
     { titulo: "Inversiones totales", valor: 0 }
   ]
 
-  // Ranking de inversión
+
   let lista = []
   for (let c of clientes) {
     const resT = await fetch(`https://localhost:7006/api/Transacciones/cliente/${c.id}`)

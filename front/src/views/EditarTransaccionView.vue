@@ -6,26 +6,26 @@
 
     <div v-if="form" class="card">
 
-      <!-- ACCIÓN -->
+
       <label>Acción</label>
       <select v-model="form.Action">
         <option value="purchase">Compra</option>
         <option value="sale">Venta</option>
       </select>
 
-      <!-- CRYPTO -->
+
       <label>Criptomoneda</label>
       <input v-model="form.CryptoCode" />
 
-      <!-- CANTIDAD -->
+
       <label>Cantidad</label>
       <input type="number" step="0.000001" v-model.number="form.CryptoAmount" />
 
-      <!-- MONEY -->
+
       <label>Monto (ARS)</label>
       <input type="number" step="0.01" v-model.number="form.Money" />
 
-      <!-- FECHA -->
+
       <label>Fecha</label>
       <input type="datetime-local" v-model="form.Date" />
 
@@ -55,7 +55,7 @@ async function cargarTransaccion() {
   const res = await fetch(`https://localhost:7006/api/Transacciones/${id}`);
   const data = await res.json();
 
-  // Convertimos fecha a formato editable (datetime-local)
+  // Combierto fecha a formato editable (datetime-local)
   const fecha = new Date(data.Date);
   const local = fecha.toISOString().slice(0, 16);
 
