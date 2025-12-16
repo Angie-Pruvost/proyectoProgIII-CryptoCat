@@ -40,6 +40,5 @@ back/dist/
 # ======================
 front/dist/
 
-# Visual Studio
-.vs/
+
 
